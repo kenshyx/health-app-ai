@@ -2,10 +2,13 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { GoogleGenAI, Type } from '@google/genai'
+import dotenv from 'dotenv'
+
+dotenv.config({quiet: true})
 
 // Initialize Gemini Client
-// The API_KEY is sourced from the environment for security.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// The GEMINI_API_KEY is sourced from the environment for security.
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const app = new Hono()
 
@@ -99,7 +102,7 @@ Combine these elements into a cohesive, artistic Aura. Use depth of field, premi
 app.post('/api/insights', async (c) => {
   try {
     const metrics: HealthMetrics = await c.req.json();
-    
+
     const prompt = `You are a holistic wellness coach. Analyze these daily health metrics:
 - Sleep: ${metrics.sleepHours} hours
 - Activity: ${metrics.steps} steps
