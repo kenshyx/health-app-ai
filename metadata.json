@@ -1,0 +1,5 @@
+{
+  "name": "Aura Health Art",
+  "description": "A mobile-first application that visualizes your physical and mental state by transforming health metrics (sleep, activity, stress) into unique generative art using Gemini.",
+  "requestFramePermissions": []
+}
